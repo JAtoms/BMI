@@ -38,47 +38,43 @@ class _InputPageState extends State<InputPage> {
                     children: [
                       Expanded(
                         flex: 1,
-                        child: GestureDetector(
-                          onTap: () {
+                        child: ReusableCard(
+                          mLeft: 30,
+                          mTop: 40,
+                          mRight: 0,
+                          mBottom: 0,
+                          onPress: () {
                             setState(() {
                               selectedGender = Gender.male;
                             });
                           },
-                          child: ReusableCard(
-                            mLeft: 30,
-                            mTop: 40,
-                            mRight: 0,
-                            mBottom: 0,
-                            color: (selectedGender == Gender.male)
-                                ? activeCardColor
-                                : inactiveCardColor,
-                            cardChild: GenderWidget(
-                              gender: 'MALE',
-                              genderIcon: FontAwesomeIcons.mars,
-                            ),
+                          color: (selectedGender == Gender.male)
+                              ? activeCardColor
+                              : inactiveCardColor,
+                          cardChild: GenderWidget(
+                            gender: 'MALE',
+                            genderIcon: FontAwesomeIcons.mars,
                           ),
                         ),
                       ),
                       Expanded(
                         flex: 1,
-                        child: GestureDetector(
-                          onTap: () {
+                        child: ReusableCard(
+                          mLeft: 10,
+                          mTop: 40,
+                          mRight: 30,
+                          mBottom: 0,
+                          onPress: () {
                             setState(() {
                               selectedGender = Gender.female;
                             });
                           },
-                          child: ReusableCard(
-                            mLeft: 10,
-                            mTop: 40,
-                            mRight: 30,
-                            mBottom: 0,
-                            color: (selectedGender == Gender.female)
-                                ? activeCardColor
-                                : inactiveCardColor,
-                            cardChild: GenderWidget(
-                              gender: 'FEMALE',
-                              genderIcon: FontAwesomeIcons.venus,
-                            ),
+                          color: (selectedGender == Gender.female)
+                              ? activeCardColor
+                              : inactiveCardColor,
+                          cardChild: GenderWidget(
+                            gender: 'FEMALE',
+                            genderIcon: FontAwesomeIcons.venus,
                           ),
                         ),
                       ),
