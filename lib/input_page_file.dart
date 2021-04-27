@@ -46,7 +46,7 @@ class _InputPageState extends State<InputPage> {
                           },
                           child: ReusableCard(
                             mLeft: 30,
-                            mTop: 40
+                            mTop: 40,
                             mRight: 0,
                             mBottom: 0,
                             color: (selectedGender == Gender.male)
