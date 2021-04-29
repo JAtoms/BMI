@@ -285,10 +285,7 @@ class _InputPageState extends State<InputPage> {
                 ),
               ),
               onPress: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => BMIDetailPage()),
-                );
+                Navigator.pushNamed(context, 'detailScreen');
               },
             ),
           )

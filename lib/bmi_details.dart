@@ -1,9 +1,10 @@
+import 'package:bmi/reusableCards.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 Widget appBar() {
   return AppBar(
-    title: Text('BMI Details'),
+    title: Text('YOUR RESULT'),
     centerTitle: true,
   );
 }
@@ -16,6 +17,11 @@ class BMIDetailPage extends StatefulWidget {
 class _BMIDetailPageState extends State<BMIDetailPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      appBar: appBar(),
+      body: Column(
+        children: [ReusableCard()],
+      ),
+    );
   }
 }
