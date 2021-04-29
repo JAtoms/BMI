@@ -5,7 +5,6 @@ import 'constants.dart';
 import 'icon_content.dart';
 
 enum Gender { male, female }
-enum Value { add, subtract }
 
 Widget appBar() {
   return AppBar(title: Text('BMI CALCULATOR'), centerTitle: true);
@@ -18,7 +17,8 @@ class InputPage extends StatefulWidget {
 
 int bmiValue = 120;
 int ageValue = 25;
-int weightValue = 120;
+int weightValue = 74;
+
 Gender selectedGender;
 
 class _InputPageState extends State<InputPage> {
@@ -169,14 +169,24 @@ class _InputPageState extends State<InputPage> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   RoundButton(
+                                      onPress: () {
+                                        setState(() {
+                                          weightValue++;
+                                        });
+                                      },
                                       icon: Icon(
-                                    FontAwesomeIcons.plus,
-                                    color: Colors.white,
-                                  )),
+                                        FontAwesomeIcons.plus,
+                                        color: Colors.white,
+                                      )),
                                   SizedBox(
                                     width: 12,
                                   ),
                                   RoundButton(
+                                    onPress: () {
+                                      setState(() {
+                                        weightValue--;
+                                      });
+                                    },
                                     icon: Icon(
                                       FontAwesomeIcons.minus,
                                       color: Colors.white,
@@ -228,14 +238,14 @@ class _InputPageState extends State<InputPage> {
 
 class RoundButton extends StatelessWidget {
   final Widget icon;
-  final String value;
+  final Function onPress;
 
-  RoundButton({@required this.icon});
+  RoundButton({this.onPress, @required this.icon});
 
   @override
   Widget build(BuildContext context) {
     return RawMaterialButton(
-      onPressed: () {},
+      onPressed: onPress,
       fillColor: Color(0XFF4C4F5E),
       shape: CircleBorder(),
       elevation: 6,
