@@ -8,6 +8,7 @@ Widget appShell() {
     debugShowCheckedModeBanner: false,
     theme: ThemeData.dark().copyWith(
         primaryColor: Color(0XFF0A0E21),
+        platform: TargetPlatform.iOS,
         scaffoldBackgroundColor: Color(0XFF0A0E21)),
     home: InputPage(),
   );
