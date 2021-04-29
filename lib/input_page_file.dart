@@ -2,6 +2,7 @@ import 'package:bmi/reusableCardContent.dart';
 import 'package:bmi/reusableCards.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'bmi_details.dart';
 import 'constants.dart';
 import 'icon_content.dart';
 
@@ -283,6 +284,12 @@ class _InputPageState extends State<InputPage> {
                   style: kLabelBodyTestStyle,
                 ),
               ),
+              onPress: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => BMIDetailPage()),
+                );
+              },
             ),
           )
         ],
