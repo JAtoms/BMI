@@ -13,7 +13,7 @@ class ReusableCard extends StatelessWidget {
       @required this.mBottom,
       @required this.color,
       @required this.cardChild,
-      @required this.onPress});
+      this.onPress});
 
   @override
   Widget build(BuildContext context) {

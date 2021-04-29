@@ -1,3 +1,4 @@
+import 'package:bmi/reusableCardContent.dart';
 import 'package:bmi/reusableCards.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -16,7 +17,7 @@ class InputPage extends StatefulWidget {
 }
 
 int bmiValue = 120;
-int ageValue = 25;
+int ageValue = 19;
 int weightValue = 74;
 
 Gender selectedGender;
@@ -157,13 +158,19 @@ class _InputPageState extends State<InputPage> {
                           cardChild: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Text(
-                                'WEIGHT',
-                                style: kLabelTestStyle,
+                              Padding(
+                                padding: const EdgeInsets.only(bottom: 10),
+                                child: Text(
+                                  'WEIGHT',
+                                  style: kLabelTestStyle,
+                                ),
                               ),
-                              Text(
-                                weightValue.toString(),
-                                style: kLabelBoldTestStyle,
+                              Padding(
+                                padding: const EdgeInsets.only(bottom: 10),
+                                child: Text(
+                                  weightValue.toString(),
+                                  style: kLabelBoldTestStyle,
+                                ),
                               ),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
@@ -171,11 +178,11 @@ class _InputPageState extends State<InputPage> {
                                   RoundButton(
                                       onPress: () {
                                         setState(() {
-                                          weightValue++;
+                                          weightValue--;
                                         });
                                       },
                                       icon: Icon(
-                                        FontAwesomeIcons.plus,
+                                        FontAwesomeIcons.minus,
                                         color: Colors.white,
                                       )),
                                   SizedBox(
@@ -184,11 +191,11 @@ class _InputPageState extends State<InputPage> {
                                   RoundButton(
                                     onPress: () {
                                       setState(() {
-                                        weightValue--;
+                                        weightValue++;
                                       });
                                     },
                                     icon: Icon(
-                                      FontAwesomeIcons.minus,
+                                      FontAwesomeIcons.plus,
                                       color: Colors.white,
                                     ),
                                   ),
@@ -206,8 +213,56 @@ class _InputPageState extends State<InputPage> {
                           mRight: 30,
                           mBottom: 15,
                           color: kActiveCardColor,
+                          cardChild: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.only(bottom: 10),
+                                child: Text(
+                                  'AGE',
+                                  style: kLabelTestStyle,
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(bottom: 10),
+                                child: Text(
+                                  ageValue.toString(),
+                                  style: kLabelBoldTestStyle,
+                                ),
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  RoundButton(
+                                      onPress: () {
+                                        setState(() {
+                                          ageValue--;
+                                        });
+                                      },
+                                      icon: Icon(
+                                        FontAwesomeIcons.minus,
+                                        color: Colors.white,
+                                      )),
+                                  SizedBox(
+                                    width: 12,
+                                  ),
+                                  RoundButton(
+                                    onPress: () {
+                                      setState(() {
+                                        ageValue++;
+                                      });
+                                    },
+                                    icon: Icon(
+                                      FontAwesomeIcons.plus,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ],
+                              )
+                            ],
+                          ),
                         ),
-                      ),
+                      )
                     ],
                   ),
                 ),
@@ -232,25 +287,6 @@ class _InputPageState extends State<InputPage> {
           )
         ],
       ),
-    );
-  }
-}
-
-class RoundButton extends StatelessWidget {
-  final Widget icon;
-  final Function onPress;
-
-  RoundButton({this.onPress, @required this.icon});
-
-  @override
-  Widget build(BuildContext context) {
-    return RawMaterialButton(
-      onPressed: onPress,
-      fillColor: Color(0XFF4C4F5E),
-      shape: CircleBorder(),
-      elevation: 6,
-      constraints: BoxConstraints.tightFor(width: 50, height: 50),
-      child: icon,
     );
   }
 }
