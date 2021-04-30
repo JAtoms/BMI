@@ -1,3 +1,4 @@
+import 'package:bmi/constants.dart';
 import 'package:flutter/material.dart';
 
 // Widget contains properties for each gender displayed
@@ -24,7 +25,7 @@ class GenderWidget extends StatelessWidget {
         ),
         Text(
           gender,
-          style: TextStyle(fontSize: 18, color: Color(0XFF8D8E98)),
+          style: kLabelTestStyle,
         )
       ],
     );

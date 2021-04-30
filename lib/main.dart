@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'bmi_details.dart';
 import 'input_page_file.dart';
 
 void main() => runApp(appShell());
@@ -8,8 +9,13 @@ Widget appShell() {
     debugShowCheckedModeBanner: false,
     theme: ThemeData.dark().copyWith(
         primaryColor: Color(0XFF0A0E21),
+        platform: TargetPlatform.iOS,
         scaffoldBackgroundColor: Color(0XFF0A0E21)),
-    home: InputPage(),
+    routes: {
+      'mainScreen': (context) => InputPage(),
+      'detailScreen': (context) => BMIDetailPage(),
+    },
+    initialRoute: 'mainScreen',
   );
 }
 
