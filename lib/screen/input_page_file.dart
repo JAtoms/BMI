@@ -1,8 +1,9 @@
+import '../calculator_brain.dart';
+import 'bmi_details.dart';
 import 'file:///D:/Mobile%20Apps/FlutterProjects/bmi/lib/component/reusableCards.dart';
 import 'package:bmi/component/reusableCardContent.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'bmi_details.dart';
 import '../constants/constants.dart';
 import '../component/icon_content.dart';
 
@@ -17,9 +18,9 @@ class InputPage extends StatefulWidget {
   _InputPageState createState() => _InputPageState();
 }
 
-int bmiValue = 120;
+int bmiHeight = 120;
 int ageValue = 19;
-int weightValue = 74;
+int bmiWeight = 74;
 
 Gender selectedGender;
 
@@ -109,7 +110,7 @@ class _InputPageState extends State<InputPage> {
                           textBaseline: TextBaseline.ideographic,
                           children: [
                             Text(
-                              bmiValue.toString(),
+                              bmiHeight.toString(),
                               style: kLabelBoldTestStyle,
                             ),
                             Padding(
@@ -129,12 +130,12 @@ class _InputPageState extends State<InputPage> {
                                 overlayColor: Color(0X29EB1555),
                                 activeTrackColor: Colors.white),
                             child: Slider(
-                              value: bmiValue.toDouble(),
+                              value: bmiHeight.toDouble(),
                               min: 120.0,
                               max: 220.0,
                               onChanged: (double newValue) {
                                 setState(() {
-                                  bmiValue = newValue.toInt();
+                                  bmiHeight = newValue.toInt();
                                 });
                               },
                             ),
@@ -169,7 +170,7 @@ class _InputPageState extends State<InputPage> {
                               Padding(
                                 padding: const EdgeInsets.only(bottom: 10),
                                 child: Text(
-                                  weightValue.toString(),
+                                  bmiWeight.toString(),
                                   style: kLabelBoldTestStyle,
                                 ),
                               ),
@@ -179,7 +180,7 @@ class _InputPageState extends State<InputPage> {
                                   RoundButton(
                                       onPress: () {
                                         setState(() {
-                                          weightValue--;
+                                          bmiWeight--;
                                         });
                                       },
                                       icon: Icon(
@@ -192,7 +193,7 @@ class _InputPageState extends State<InputPage> {
                                   RoundButton(
                                     onPress: () {
                                       setState(() {
-                                        weightValue++;
+                                        bmiWeight++;
                                       });
                                     },
                                     icon: Icon(
@@ -288,7 +289,16 @@ class _InputPageState extends State<InputPage> {
                 ),
               ),
               onPress: () {
-                Navigator.pushNamed(context, 'detailScreen');
+                CalculatorBrain calc =
+                    new CalculatorBrain(bmiHeight, bmiWeight);
+                calc.calculateBMI();
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => BMIDetailPage(calc.getResult(),
+                        bmiWeight.toString(), calc.getInterpretation()),
+                  ),
+                );
               },
             ),
           )

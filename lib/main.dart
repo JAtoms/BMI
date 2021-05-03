@@ -13,7 +13,6 @@ Widget appShell() {
         scaffoldBackgroundColor: Color(0XFF0A0E21)),
     routes: {
       'mainScreen': (context) => InputPage(),
-      'detailScreen': (context) => BMIDetailPage(),
     },
     initialRoute: 'mainScreen',
   );

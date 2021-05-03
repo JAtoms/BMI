@@ -11,12 +11,11 @@ Widget appBar() {
   );
 }
 
-class BMIDetailPage extends StatefulWidget {
-  @override
-  _BMIDetailPageState createState() => _BMIDetailPageState();
-}
+class BMIDetailPage extends StatelessWidget {
+  final String _weightInfo, _weightResult, _weightTip;
 
-class _BMIDetailPageState extends State<BMIDetailPage> {
+  BMIDetailPage(this._weightInfo, this._weightResult, this._weightTip);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,14 +37,14 @@ class _BMIDetailPageState extends State<BMIDetailPage> {
                   Padding(
                     padding: const EdgeInsets.fromLTRB(0, 70, 0, 40),
                     child: Text(
-                      'OVERWEIGHT',
+                      _weightInfo,
                       style: kLabelTestStyle,
                     ),
                   ),
                   Padding(
                     padding: const EdgeInsets.fromLTRB(0, 0, 0, 30),
                     child: Text(
-                      '28.4',
+                      _weightResult,
                       style: kLabelBolderTestStyle,
                     ),
                   ),
@@ -63,11 +62,13 @@ class _BMIDetailPageState extends State<BMIDetailPage> {
                       style: kLabelSmallBodyTestStyle,
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(0, 0, 0, 80),
-                    child: Text(
-                      'You have a higher weight.',
-                      style: kLabelSmallBodyTestStyle,
+                  Center(
+                    child: Padding(
+                      padding: const EdgeInsets.fromLTRB(20, 0, 20, 80),
+                      child: Text(
+                        _weightTip,
+                        style: kLabelSmallBodyTestStyle,
+                      ),
                     ),
                   ),
                   RoundEdgeButton(
