@@ -1,10 +1,10 @@
-import 'package:bmi/reusableCardContent.dart';
-import 'package:bmi/reusableCards.dart';
+import 'file:///D:/Mobile%20Apps/FlutterProjects/bmi/lib/component/reusableCards.dart';
+import 'package:bmi/component/reusableCardContent.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'bmi_details.dart';
-import 'constants.dart';
-import 'icon_content.dart';
+import '../constants/constants.dart';
+import '../component/icon_content.dart';
 
 enum Gender { male, female }
 
@@ -279,9 +279,12 @@ class _InputPageState extends State<InputPage> {
               mBottom: 0,
               color: kBottomCardColor,
               cardChild: Center(
-                child: Text(
-                  'CALCULATE YOUR BMI',
-                  style: kLabelBodyTestStyle,
+                child: Padding(
+                  padding: const EdgeInsets.only(bottom: 8),
+                  child: Text(
+                    'CALCULATE YOUR BMI',
+                    style: kLabelBodyTestStyle,
+                  ),
                 ),
               ),
               onPress: () {

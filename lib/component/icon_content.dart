@@ -1,4 +1,4 @@
-import 'package:bmi/constants.dart';
+import 'file:///D:/Mobile%20Apps/FlutterProjects/bmi/lib/constants/constants.dart';
 import 'package:flutter/material.dart';
 
 // Widget contains properties for each gender displayed
