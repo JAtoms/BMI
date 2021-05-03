@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'bmi_details.dart';
-import 'input_page_file.dart';
+import 'screen/bmi_details.dart';
+import 'screen/input_page_file.dart';
 
 void main() => runApp(appShell());
 
@@ -13,7 +13,6 @@ Widget appShell() {
         scaffoldBackgroundColor: Color(0XFF0A0E21)),
     routes: {
       'mainScreen': (context) => InputPage(),
-      'detailScreen': (context) => BMIDetailPage(),
     },
     initialRoute: 'mainScreen',
   );

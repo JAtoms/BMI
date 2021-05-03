@@ -16,6 +16,16 @@ const kLabelBodyTestStyle = TextStyle(
   color: Colors.white,
 );
 
+const kLabelSmallBodyTestStyle = TextStyle(
+  fontSize: 18,
+  color: Colors.white,
+);
+
+const kLabelColoredSmallBodyTestStyle = TextStyle(
+  fontSize: 18,
+  color: Color(0XFF8D8E98),
+);
+
 const kLabelMediumTestStyle = TextStyle(
   fontSize: 20,
   color: Color(0XFF8D8E98),
@@ -23,6 +33,12 @@ const kLabelMediumTestStyle = TextStyle(
 
 const kLabelBoldTestStyle = TextStyle(
   fontSize: 50,
+  fontWeight: FontWeight.bold,
+  color: Colors.white,
+);
+
+const kLabelBolderTestStyle = TextStyle(
+  fontSize: 90,
   fontWeight: FontWeight.bold,
   color: Colors.white,
 );
